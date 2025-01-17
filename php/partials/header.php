@@ -3,7 +3,7 @@
         <!-- Logotipo -->
         <div class="logo">
            
-            <img src="assets/images/logo.png" alt="LEO Cursos Logo">
+            <img src="assets/images/logo.png" alt="revvo Logo">
            
         </div>
 

@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['modalViewed'])) {
+        $_SESSION['modalViewed'] = false;
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,6 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+    <?php if (!$_SESSION['modalViewed']): ?>
+        <script>
+            sessionStorage.removeItem('modalViewed');
+        </script>
+    <?php endif; ?>
     <main class="home">
 
         <section class="slideshow-container">
@@ -101,7 +112,38 @@
                 </div>
             </div>
         </section>
+
+        <div class="modal-overlay"></div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close" onclick="closeModal()">
+                        <i class="fas fa-times close-icon"></i>
+                    </span>
+                    <img src="/assets/images/modal-image.jpg" alt="Modal Image">
+                </div>
+                <div class="modal-text">
+                    <h2>EGESTAS TORTOR VULPUTATE</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quod incidunt rem officia nam accusamus blanditiis magnam iste nemo asperiores.</p>
+                    <button class="btn-register" onclick="closeModal()">INSCREVA-SE</button>
+                </div>
+            </div>
+        </div>
+
     </main>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (!sessionStorage.getItem('modalViewed')) {
+                document.getElementById("myModal").style.display = "block";
+            }
+        });
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+            sessionStorage.setItem('modalViewed', 'true');
+            <?php $_SESSION['modalViewed'] = true; ?>
+        }
+    </script>
 </body>
 </html>

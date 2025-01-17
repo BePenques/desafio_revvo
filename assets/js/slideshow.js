@@ -21,3 +21,17 @@ function changeSlide(step) {
 
 
 showSlide(currentSlideIndex);
+
+//modal
+
+document.addEventListener("DOMContentLoaded", function() {
+    if (!sessionStorage.getItem('modalViewed')) {
+        document.getElementById("myModal").style.display = "block";
+    }
+});
+
+function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+    sessionStorage.setItem('modalViewed', 'true');
+}
+

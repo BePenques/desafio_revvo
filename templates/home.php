@@ -6,17 +6,20 @@
 </head>
 <body>
     <main class="home">
-        <section class="slideshow">
-            <div class="slide">
-                <img src="/assets/images/slide.jpg" alt="Slide 1">
-                <div class="slide-content">
-                    <h2>Lorem Ipsum</h2>
-                    <p>Anenim liberatmend axolu condis asectetur. Cum soceis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin massa est, porta ac consectetur ac, vestibulum at eros.</p>
-                    <a href="#" class="btn">Ver Curso</a>
-                </div>
-            </div>
-        </section>
 
+        <section class="slideshow-container">
+            <div class="slide fade">
+                <img src="/assets/images/slide.jpg" alt="Slide 1" style="width:100%">
+            </div>
+
+            <div class="slide fade">
+                <img src="/assets/images/slide-2.jpg" alt="Slide 2" style="width:100%">
+            </div>
+
+            <a class="prev" onclick="changeSlide(-1)"> <i class="fas fa-chevron-left"></i></a>
+            <a class="next" onclick="changeSlide(1)"> <i class="fas fa-chevron-right"></i></a>
+        </section>
+     
         <section class="courses">
             <h2>MEUS CURSOS</h2>
             <div class="line"></div>

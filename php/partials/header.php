@@ -1,11 +1,9 @@
 <header class="site-header">
     <div class="container">
-        <!-- Logotipo -->
         <div class="logo">           
             <img src="assets/images/logo.png" alt="revvo Logo">
         </div>
 
-        <!-- Campo de Busca -->
         <div class="search-bar">
             <form action="index.php" method="get">
                 <input type="text" name="search" placeholder="Pesquisar cursos..." aria-label="Pesquisar cursos">

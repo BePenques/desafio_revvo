@@ -12,18 +12,17 @@
             <form action="index.php" method="get">
                 <input type="text" name="search" placeholder="Pesquisar cursos..." aria-label="Pesquisar cursos">
                 <button type="submit" aria-label="Buscar">
-                    <!-- <img src="assets/images/search-icon.png" alt="Ícone de busca"> -->
+                
                     <i class="fas fa-search"></i>
-                </button>
+                </button> 
             </form>
         </div>
 
         <div class="user-info">
-            <span>Seja bem-vindo</span>
-            <div class="user-profile">
-                <img src="https://github.com/BePenques.png" alt="Avatar do usuário">
+            <img class="user-profile" src="https://github.com/BePenques.png" alt="Avatar do usuário">
+            <div>
+                <span>Seja bem-vindo</span>
                 <span>Betiza Penques</span>
-                <i class="arrow-down-icon"></i>
             </div>
         </div>
     </div>

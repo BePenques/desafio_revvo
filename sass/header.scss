@@ -26,26 +26,43 @@
     display: flex;
     width: 60%;
     max-width: 400px;
+    position: relative;
 }
 
 .search-bar input {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px;
     outline: none;
+    background: #eeeeee;
 }
 
 .search-bar button {
     padding: 8px;
     border: none;
-    background-color: transparent;
     cursor: pointer;
+
+    position: absolute;
+    right: 10px; 
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+   
 }
+.search-bar button i{
+    color: #A9A9A9
+   
+}
+
 
 .user-info {
     display: flex;
     align-items: center;
+}
+.user-info div{
+    display: flex;
+    flex-direction: column;
 }
 
 .user-profile {
@@ -54,7 +71,7 @@
     cursor: pointer;
 }
 
-.user-profile img {
+.user-profile {
     border-radius: 50%;
     width: 40px;
     height: 40px;

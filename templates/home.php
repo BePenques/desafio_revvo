@@ -3,6 +3,13 @@
     if (!isset($_SESSION['modalViewed'])) {
         $_SESSION['modalViewed'] = false;
     }
+
+    require_once './admin/controllers/courseController.php';
+
+    $controller = new courseController();
+    $courses = $controller->getAll();
+    
+    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -45,76 +52,19 @@
             <h2>MEUS CURSOS</h2>
             <div class="line"></div>
             <div class="course-grid">
-                <div class="course-card">
-                    <img src="/assets/images/curso.jpg" alt="Curso 1">
-                    <div class="course-info">
-                        <div class="course-txt">
-                            <h3>Pellentesque Malesuada</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                <?php foreach ($courses as $course): ?>
+                    <div class="course-card">
+                        <img src="/assets/images/curso.jpg" alt="imagem do curso">
+                        <!-- <img src="php echo htmlspecialchars($course['image']); " alt="Curso 1"> -->
+                        <div class="course-info">
+                            <div class="course-txt">
+                                <h3><?php echo htmlspecialchars($course['title']); ?></h3>
+                                <p><?php echo htmlspecialchars($course['description']); ?></p>
+                            </div>
+                            <Button href="#" class="btn">VER CURSO</Button>
                         </div>
-                        <Button href="#" class="btn">VER CURSO</Button>
-                    </div>
-                </div>
-                <div class="course-card">
-                    <img src="/assets/images/curso.jpg" alt="Curso 1">
-                    <div class="course-info">
-                        <div class="course-txt">
-                            <h3>Pellentesque Malesuada</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                        </div>
-                        <Button href="#" class="btn">VER CURSO</Button>
-                    </div>
-                </div>
-                <div class="course-card">
-                    <img src="/assets/images/curso.jpg" alt="Curso 1">
-                    <div class="course-info">
-                        <div class="course-txt">
-                            <h3>Pellentesque Malesuada</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                        </div>
-                        <Button href="#" class="btn">VER CURSO</Button>
-                    </div>
-                </div>
-                <div class="course-card">
-                    <img src="/assets/images/curso.jpg" alt="Curso 1">
-                    <div class="course-info">
-                        <div class="course-txt">
-                            <h3>Pellentesque Malesuada</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                        </div>
-                        <Button href="#" class="btn">VER CURSO</Button>
-                    </div>
-                </div>
-                <div class="course-card">
-                    <img src="/assets/images/curso.jpg" alt="Curso 1">
-                    <div class="course-info">
-                        <div class="course-txt">
-                            <h3>Pellentesque Malesuada</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                        </div>
-                        <Button href="#" class="btn">VER CURSO</Button>
-                    </div>
-                </div>
-                <div class="course-card">
-                    <img src="/assets/images/curso.jpg" alt="Curso 1">
-                    <div class="course-info">
-                        <div class="course-txt">
-                            <h3>Pellentesque Malesuada</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                        </div>
-                        <Button href="#" class="btn">VER CURSO</Button>
-                    </div>
-                </div>
-                <div class="course-card">
-                    <img src="/assets/images/curso.jpg" alt="Curso 1">
-                    <div class="course-info">
-                        <div class="course-txt">
-                            <h3>Pellentesque Malesuada</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                        </div>
-                        <Button href="#" class="btn">VER CURSO</Button>
-                    </div>
-                </div>
+                    </div>  
+                <?php endforeach; ?>  
                 <div class="add-course">
                     <a href="admin/index.php">
                         <img src="/assets/images/add-course.png" alt="Curso 1">
@@ -123,7 +73,7 @@
                             <span>CURSO</span>  
                         </div>
                     </a>                
-                </div>
+                </div> 
             </div>
         </section>
 

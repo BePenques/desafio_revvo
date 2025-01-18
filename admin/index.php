@@ -2,7 +2,7 @@
 $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 
 $pages = [
-    'dashboard' => '../admin/views/courses/dashboard.php',     
+    'dashboard' => '../admin/views/dashboard.php',     
 ];
 ?>
 <!DOCTYPE html>

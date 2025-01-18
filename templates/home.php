@@ -4,9 +4,9 @@
         $_SESSION['modalViewed'] = false;
     }
 
-    require_once './admin/controllers/courseController.php';
+    require_once './admin/controllers/CourseController.php';
 
-    $controller = new courseController();
+    $controller = new CourseController();
     $courses = $controller->getAll();
     
     

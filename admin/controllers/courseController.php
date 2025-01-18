@@ -2,7 +2,7 @@
 
 require_once './admin/models/Course.php';
 
-class courseController
+class CourseController
 {
     private $courseModel;
 

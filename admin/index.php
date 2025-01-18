@@ -2,7 +2,8 @@
 $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 
 $pages = [
-    'dashboard' => '../admin/views/dashboard.php',     
+    'dashboard' => '../admin/views/dashboard.php',  
+    'create'=> '../admin/views/courses/create.php',   
 ];
 ?>
 <!DOCTYPE html>
@@ -13,6 +14,7 @@ $pages = [
     
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/form.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

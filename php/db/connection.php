@@ -1,20 +1,30 @@
 <?php
-$env = parse_ini_file(__DIR__ . '/../../.env');
 
+class Connection {
+    protected $connection;
 
-$host = $env['DB_HOST'];
-$dbname = $env['DB_NAME'];
-$username = $env['DB_USER'];
-$password = $env['DB_PASSWORD'];
+    function __construct()
+    {
+        $this->connectDB();
+    }
 
-try {
-    //nova conexão usando PDO
-    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    // Define o modo de erro do PDO para exceções
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    function connectDB(){
 
+        $env = parse_ini_file(__DIR__ . '/../../.env');
 
-} catch (PDOException $e) {
-    echo "Erro na conexão: " . $e->getMessage();
+        $host = $env['DB_HOST'];
+        $dbname = $env['DB_NAME'];
+        $username = $env['DB_USER'];
+        $password = $env['DB_PASSWORD'];
+
+        try {
+            //nova conexaao usando PDO
+            $this->connection = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+        
+        } catch (PDOException $e) {
+            echo "Erro na conexão: " . $e->getMessage();
+        }
+
+    }
 }
 ?>

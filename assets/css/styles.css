@@ -225,3 +225,14 @@ body {
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+
+@media (max-width: 768px) {
+  .add-course {
+    width: 100%;
+    height: 300px;
+  }
+  .add-course img {
+    width: 80px;
+    margin-bottom: 5px;
+  }
+}

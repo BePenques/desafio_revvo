@@ -1,7 +1,7 @@
 <header class="site-header">
     <div class="container">
         <div class="logo">           
-            <img src="assets/images/logo.png" alt="revvo Logo">
+            <img src="/assets/images/logo.png" alt="revvo Logo">
         </div>
 
         <div class="search-bar">

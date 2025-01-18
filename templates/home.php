@@ -116,9 +116,13 @@
                     </div>
                 </div>
                 <div class="add-course">
-                    <img src="/assets/images/add-course.png" alt="Curso 1">
-                    <p>ADICIONAR<p>
-                    <span>CURSO</span>                  
+                    <a href="admin/index.php">
+                        <img src="/assets/images/add-course.png" alt="Curso 1">
+                        <div class="add-course-txt">
+                            <p>ADICIONAR<p>
+                            <span>CURSO</span>  
+                        </div>
+                    </a>                
                 </div>
             </div>
         </section>

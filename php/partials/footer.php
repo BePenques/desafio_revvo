@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="footer-content">
         <div class="footer-section logo">
-            <img src="assets/images/logo.png" alt="revvo Logo">
+            <img src="/assets/images/logo.png" alt="revvo Logo">
             <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
         </div>
         

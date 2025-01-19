@@ -1,7 +1,15 @@
 <?php
+
+
+require_once __DIR__ . '/../../controllers/CourseController.php';
+
+
+$controller = new CourseController();
+
 $title = $description = "";
 $image = null;
 $isEdit = false;
+$success =  null;
 
 // Verifica se é uma edição
 if (isset($_GET['id'])) {
@@ -19,18 +27,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
 
-    // if (!empty($_FILES['image']['name'])) {
-    //     $image = $_FILES['image']['name'];
-    //     move_uploaded_file($_FILES['image']['tmp_name'], "uploads/" . $image);
-    // }
+    if (!empty($_FILES['image']['name'])) {
 
-   
+       $normalizedTitle = strtolower(preg_replace('/[^A-Za-z0-9]/', '_', $title));
+       $imageExtension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+
+       $imageName = $normalizedTitle . '.' . $imageExtension;
+
+        move_uploaded_file($_FILES['image']['tmp_name'], "uploads/" . $imageName);
+    }
+
+  
     if ($isEdit) {
-      
-        echo "Curso atualizado com sucesso!";
+        // to do: update controller
     } else {
       
-        echo "Curso criado com sucesso!";
+        $data = ['title'=> $title,'description'=> $description,'image'=> $image];
+        $success = $controller->create($data);
+
+
+        if ($success) {
+            $title = '';
+            $description = '';
+            $image = '';
+        }
     }
 }
 ?>
@@ -43,6 +63,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title><?php echo $isEdit ? 'Editar Curso' : 'Criar Curso'; ?></title>
 </head>
 <body>
+    <?php if ($success): ?>
+        <div class="toast success">Curso criado com sucesso!</div>
+    <?php elseif ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+        <div class="toast error">Erro ao criar o curso. Tente novamente.</div>
+    <?php endif; ?>
     <main>
        
         <form action="" method="POST" enctype="multipart/form-data" class="create-form">
@@ -62,10 +87,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <p>Imagem atual: <img src="uploads/<?php echo $image; ?>" alt="Imagem do curso" style="width:100px;"></p>
                 <?php endif; ?>
             </div>
-            <div>
-                <button type="submit"><?php echo $isEdit ? 'Atualizar Curso' : 'Criar Curso'; ?></button>
+            <div class="box-btn-form">
+                <button type="submit" class="submit"><?php echo $isEdit ? 'Atualizar Curso' : 'Criar Curso'; ?></button>
+                <button type="button" class="cancel" onclick="window.location.href='/';">Cancelar</button>
             </div>
         </form>
     </main>
+    <script>
+        setTimeout(function() {
+            const toast = document.querySelector('.toast');
+            if (toast) {
+                toast.style.display = 'none';
+            }
+        }, 3000);
+    </script>
 </body>
 </html>

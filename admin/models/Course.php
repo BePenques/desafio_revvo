@@ -1,6 +1,8 @@
 <?php
 
-require_once('./php/db/connection.php');
+
+require_once __DIR__ . '/../../php/db/connection.php';
+
 
 class Course extends Connection
 {
@@ -28,6 +30,25 @@ class Course extends Connection
         $resultQuery = $this->connection->query($query);
 
         return $resultQuery;
+    }
+
+    public function create($data) 
+    {
+        $sqlInsert = "INSERT INTO " . $this->table . " (title, description, created_at) VALUES (:title, :description, NOW())";
+        $stmt = $this->connection->prepare($sqlInsert);
+        
+        try {
+            $stmt->execute([
+                'title' => $data['title'],
+                'description' => $data['description'],
+            ]);           
+
+            return true;
+            
+        } catch (PDOException $e) {
+           
+            return false;
+        }
     }
 
 }

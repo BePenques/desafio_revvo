@@ -1,6 +1,6 @@
 <?php
 
-require_once './admin/models/Course.php';
+require_once __DIR__ . '/../../admin/models/Course.php';
 
 class CourseController
 {
@@ -17,6 +17,14 @@ class CourseController
 
         return  $courses->fetchAll(PDO::FETCH_ASSOC);
         
+    }
+
+    public function create($data)
+    {
+        $result = $this->courseModel->create($data);
+
+    
+        return  $result;
     }
 
 }

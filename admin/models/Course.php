@@ -34,13 +34,14 @@ class Course extends Connection
 
     public function create($data) 
     {
-        $sqlInsert = "INSERT INTO " . $this->table . " (title, description, created_at) VALUES (:title, :description, NOW())";
+        $sqlInsert = "INSERT INTO " . $this->table . " (title, description, image, created_at) VALUES (:title, :description, :image, NOW())";
         $stmt = $this->connection->prepare($sqlInsert);
         
         try {
             $stmt->execute([
                 'title' => $data['title'],
                 'description' => $data['description'],
+                'image' => $data['image'],
             ]);           
 
             return true;

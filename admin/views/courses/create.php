@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // to do: update controller
     } else {
       
-        $data = ['title'=> $title,'description'=> $description,'image'=> $image];
+        $data = ['title'=> $title,'description'=> $description,'image'=> $imageName];
         $success = $controller->create($data);
 
 

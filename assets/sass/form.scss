@@ -62,17 +62,6 @@ main {
         }
     }
 
-    button {
-        background-color: $primary-color;
-        color: white;
-        padding: $padding;
-        border: none;
-        border-radius: $border-radius;
-        cursor: pointer;
-        font-size: 16px;
-        width: 100%;
-        
-    }
 }
 
 
@@ -80,4 +69,35 @@ img {
     border-radius: $border-radius;
     max-width: 100px;
     margin-top: $margin;
+}
+
+.box-btn-form{
+    margin-top: 20px;
+    display: flex;
+    gap: 10px   
+}
+
+.submit{
+    background-color: $primary-color;
+    color: white;
+    padding: $padding;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-size: 16px;
+    width: 150px;
+    
+
+}
+.cancel{
+    background-color: red;
+    color: white;
+    padding: $padding;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-size: 16px;
+    width: 150px;
+    
+
 }

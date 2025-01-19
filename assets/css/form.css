@@ -46,7 +46,20 @@ main {
   resize: none;
   height: 100px;
 }
-.create-form button {
+
+img {
+  border-radius: 5px;
+  max-width: 100px;
+  margin-top: 10px;
+}
+
+.box-btn-form {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.submit {
   background-color: #007BFF;
   color: white;
   padding: 15px;
@@ -54,11 +67,16 @@ main {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  width: 100%;
+  width: 150px;
 }
 
-img {
+.cancel {
+  background-color: red;
+  color: white;
+  padding: 15px;
+  border: none;
   border-radius: 5px;
-  max-width: 100px;
-  margin-top: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 150px;
 }

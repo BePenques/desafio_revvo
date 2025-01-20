@@ -61,14 +61,15 @@ main {
         }
     }
 
+    img {
+        border-radius: $border-radius;
+        max-width: 100px;
+        margin-top: $margin;
+    }
+
 }
 
 
-img {
-    border-radius: $border-radius;
-    max-width: 100px;
-    margin-top: $margin;
-}
 
 .box-btn-form{
     margin-top: 20px;

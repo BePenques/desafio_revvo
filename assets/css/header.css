@@ -1,9 +1,10 @@
+@charset "UTF-8";
 .site-header {
   width: 100%;
   background-color: #fff;
 }
 
-.container {
+.container-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -58,6 +59,17 @@
 
 .user-info div {
   display: flex;
+  color: black;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-info i {
+  margin-left: 15px;
+}
+
+.dd-infos {
+  display: flex;
   flex-direction: column;
 }
 
@@ -80,6 +92,49 @@
   display: inline-block;
   padding: 5px;
   transform: rotate(45deg);
+}
+
+/* Estilos básicos do menu */
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+}
+
+.menu > li {
+  float: left;
+}
+
+.menu > li > a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #343a40;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
 }
 
 @media (max-width: 768px) {

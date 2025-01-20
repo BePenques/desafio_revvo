@@ -35,6 +35,14 @@ class CourseController
         return  $result;
     }
 
+    public function delete($id)
+    {
+        $result = $this->courseModel->delete($id);
+
+    
+        return  $result;
+    }
+
     public function findById($id)
     {
         $course = $this->courseModel->findById($id);

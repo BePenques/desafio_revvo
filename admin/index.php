@@ -28,7 +28,8 @@ $pages = [
 <body>
     <?php
         if (array_key_exists($page, $pages)) {
-            include '../php/partials/header.php'; 
+            include '../php/partials/header.php';
+            include '../php/partials/goback.php'; 
             include $pages[$page];
             include '../php/partials/footer.php'; 
         } else {

@@ -1,5 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
     font-size: 15px;
     color: #4d4c4c;
     margin: 0px;
@@ -51,3 +52,16 @@ body {
     background-color: #f44336;
 }
 
+.btn-goback{
+    text-align: left;
+    padding: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    font-family: 'Roboto';
+    font-size: medium;
+
+    :hover{
+        color: #007BFF;
+    }
+}

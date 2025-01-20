@@ -4,6 +4,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 $pages = [
     'dashboard' => '../admin/views/dashboard.php',  
     'create'=> '../admin/views/courses/create.php',   
+    'courses'=> '../admin/views/courses/courses.php',   
 ];
 ?>
 <!DOCTYPE html>

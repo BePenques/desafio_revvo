@@ -32,6 +32,17 @@ class Course extends Connection
         return $resultQuery;
     }
 
+    public function findById($id)
+    {
+        $query = "SELECT * FROM " . $this->table . " WHERE id = " . $id;
+
+        $resultQuery = $this->connection->query($query);
+
+        return $resultQuery;
+
+    }
+
+
     public function create($data) 
     {
         $sqlInsert = "INSERT INTO " . $this->table . " (title, description, image, created_at) VALUES (:title, :description, :image, NOW())";
@@ -51,6 +62,7 @@ class Course extends Connection
             return false;
         }
     }
+   
 
 }
 

@@ -27,6 +27,16 @@ class CourseController
         return  $result;
     }
 
+
+
+    public function findById($id)
+    {
+        $course = $this->courseModel->findById($id);
+
+        return  $course->fetchAll();
+        
+    }
+
 }
 
 ?>

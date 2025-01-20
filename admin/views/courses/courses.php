@@ -91,7 +91,7 @@
             var modalImg = document.getElementById("modalImage");
             
             modal.style.display = "block";
-            modalImg.src = 'uploads/' + imageSrc;
+            modalImg.src = 'uploads/courses/' + imageSrc;
         }
 
         function closeModal() {

@@ -77,7 +77,7 @@
             var modalImg = document.getElementById("modalImage");
             
             modal.style.display = "block";
-            modalImg.src = 'uploads/' + imageSrc;
+            modalImg.src = 'uploads/slides/' + imageSrc;
         }
 
         function closeModal() {

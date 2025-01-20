@@ -54,7 +54,7 @@
             <div class="course-grid">
                 <?php foreach ($courses as $course): ?>
                     <div class="course-card">
-                        <img src='/admin/uploads/<?php echo htmlspecialchars($course['image']); ?>' alt="imagem do curso">
+                        <img src='/admin/uploads/courses/<?php echo htmlspecialchars($course['image']); ?>' alt="imagem do curso">
                         <div class="course-info">
                             <div class="course-txt">
                                 <h3><?php echo htmlspecialchars($course['title']); ?></h3>

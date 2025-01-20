@@ -10,17 +10,18 @@ $title = $description = "";
 $image = null;
 $isEdit = false;
 $success =  null;
+$course =  null;
 
 // Verifica se é uma edição
 if (isset($_GET['id'])) {
     $isEdit = true;
     $courseId = $_GET['id'];
     
+    $course = $controller->findById($courseId)[0];
+    $title = $course['title'];
+    $description = $course['title'];
+    $image = $course['image'];
   
-    // to do: Substituir por consulta real ao banco de dados
-    $title = "Curso Exemplo"; 
-    $description = "Descrição do curso exemplo";
-    $image = "exemplo.jpg"; 
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -37,20 +38,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         move_uploaded_file($_FILES['image']['tmp_name'], "uploads/" . $imageName);
     }
 
-  
+    $data = ['id'=>null,'title'=> $title,'description'=> $description,'image'=> $imageName];
+
     if ($isEdit) {
-        // to do: update controller
+        $data['id'] = $courseId;
+        $success = $controller->update($data);
+        
     } else {
-      
-        $data = ['title'=> $title,'description'=> $description,'image'=> $imageName];
         $success = $controller->create($data);
+    }
 
-
-        if ($success) {
-            $title = '';
-            $description = '';
-            $image = '';
-        }
+    if ($success) {
+        $title = '';
+        $description = '';
+        $image = '';
     }
 }
 ?>
@@ -64,9 +65,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <?php if ($success): ?>
-        <div class="toast success">Curso criado com sucesso!</div>
+
+        <div class="toast success"><?php echo $isEdit ? 'Curso editado com sucesso!' : 'Curso criado com sucesso!'; ?></div>
+
     <?php elseif ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+
         <div class="toast error">Erro ao criar o curso. Tente novamente.</div>
+
     <?php endif; ?>
     <main>
        
@@ -84,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="image">Imagem</label>
                 <input type="file" name="image" id="image" <?php echo $isEdit ? '' : 'required'; ?>>
                 <?php if ($isEdit && $image): ?>
-                    <p>Imagem atual: <img src="uploads/<?php echo $image; ?>" alt="Imagem do curso" style="width:100px;"></p>
+                    <p>Imagem atual: <img src="/admin/uploads/<?php echo $image; ?>" alt="Imagem do curso" style="width:80px;"></p>
                 <?php endif; ?>
             </div>
             <div class="box-btn-form">

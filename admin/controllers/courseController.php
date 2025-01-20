@@ -27,7 +27,13 @@ class CourseController
         return  $result;
     }
 
+    public function update($data)
+    {
+        $result = $this->courseModel->update($data);
 
+    
+        return  $result;
+    }
 
     public function findById($id)
     {

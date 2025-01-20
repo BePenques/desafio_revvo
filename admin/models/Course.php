@@ -62,6 +62,28 @@ class Course extends Connection
             return false;
         }
     }
+
+    public function update($data) 
+    {
+        $sql = "UPDATE " . $this->table . " SET title = :title, description = :description, image = :image WHERE id = :id";
+        $stmt = $this->connection->prepare($sql);
+        
+        try {
+            $stmt->execute([
+                'id'=> $data['id'],
+                'title' => $data['title'],
+                'description' => $data['description'],
+                'image' => $data['image'],
+            ]);           
+
+            return true;
+            
+        } catch (PDOException $e) {
+           
+            return false;
+        }
+    }
+
    
 
 }

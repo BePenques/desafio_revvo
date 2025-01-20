@@ -5,6 +5,7 @@ $pages = [
     'dashboard' => '../admin/views/dashboard.php',  
     'create'=> '../admin/views/courses/create.php',   
     'courses'=> '../admin/views/courses/courses.php',   
+    'slides'=> '../admin/views/slides/slides.php',   
 ];
 ?>
 <!DOCTYPE html>

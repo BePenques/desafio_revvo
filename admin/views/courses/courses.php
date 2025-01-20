@@ -45,6 +45,7 @@
     <div class="container-list">
         <h1 class="list-title">Lista de Cursos</h1>
         <div class="table-responsive">
+        <a href="/admin/index.php?page=create" class="button" style="float: right; margin-bottom: 10px;">Cadastrar curso</a>
             <table>
                 <thead>
                     <tr>
@@ -76,6 +77,7 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+
             <div id="imageModal" class="modal">
                 <a href="" class="close" onclick="closeModal()" style="text-decoration:none;">&times;</a>
                 <img id="modalImage" class="modal-content">

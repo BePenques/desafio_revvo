@@ -9,8 +9,8 @@
     <div class="dashboard-container">
         <h1>Admin Dashboard</h1>
         <div class="button-container">
-            <a href="/admin/index.php?page=create" class="button">Cadastrar Curso</a>
-            <a href="index.php?page=slideshow_create" class="button">Cadastrar Slideshow</a>
+            <a href="/admin/index.php?page=courses" class="button">Cursos</a>
+            <a href="index.php?page=slideshow_create" class="button">Slides</a>
             <a href="../index.php?page=home" class="button">Retornar à Home</a>
         </div>
     </div>

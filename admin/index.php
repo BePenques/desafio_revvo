@@ -6,6 +6,7 @@ $pages = [
     'create'=> '../admin/views/courses/create.php',   
     'courses'=> '../admin/views/courses/courses.php',   
     'slides'=> '../admin/views/slides/slides.php',   
+    'create-slide'=> '../admin/views/slides/create-slide.php',   
 ];
 ?>
 <!DOCTYPE html>

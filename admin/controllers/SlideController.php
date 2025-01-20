@@ -18,6 +18,12 @@ class SlideController
         return  $slides->fetchAll(PDO::FETCH_ASSOC);
         
     }
+    public function create($data)
+    {
+        $result = $this->slideModel->create($data);
+    
+        return  $result;
+    }
 
 
 }

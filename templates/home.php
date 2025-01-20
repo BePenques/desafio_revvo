@@ -5,9 +5,13 @@
     }
 
     require_once './admin/controllers/CourseController.php';
+    require_once './admin/controllers/SlideController.php';
 
     $controller = new CourseController();
     $courses = $controller->getAll();
+
+    $slidesController = new SlideController();
+    $slides = $slidesController->getAll();
     
     
 ?>
@@ -27,15 +31,6 @@
 
         <section class="slideshow-container">
             <div class="slide fade">
-                <img src="/assets/images/slide.jpg" alt="Slide 1" style="width:100%">
-                <div class="slide-content">
-                    <h2>Lorem Ipsum</h2>
-                    <p>Anenim liberatmend axolu condis asectetur. Cum soceis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin massa est, porta ac consectetur ac, vestibulum at eros.</p>
-                    <button href="#" class="btn">VER CURSO</button>
-                </div>
-            </div>
-
-            <div class="slide fade">
                 <img src="/assets/images/slide-2.jpg" alt="Slide 2" style="width:100%">
                 <div class="slide-content">
                     <h2>Lorem Ipsum</h2>
@@ -43,6 +38,18 @@
                     <button href="#" class="btn">VER CURSO</button>
                 </div>
             </div>
+            <?php foreach ($slides as $slide): ?>
+                <div class="slide fade">
+                    <img src='/admin/uploads/slides/<?php echo htmlspecialchars($slide['image']); ?>' alt="Slide 1" style="width:100%">
+                    <div class="slide-content">
+                        <h2><?php echo htmlspecialchars($slide['title']); ?></h2>
+                        <p><?php echo htmlspecialchars($slide['description']); ?></p>
+                        <a href="<?php echo htmlspecialchars($slide['button_link']); ?>" target="_blank">
+                            <button class="btn">VER CURSO</button>
+                        </a>
+                    </div>
+                </div>
+            <?php endforeach; ?> 
 
             <a class="prev" onclick="changeSlide(-1)"> <i class="fas fa-chevron-left"></i></a>
             <a class="next" onclick="changeSlide(1)"> <i class="fas fa-chevron-right"></i></a>

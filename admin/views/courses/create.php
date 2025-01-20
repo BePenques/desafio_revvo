@@ -11,6 +11,7 @@ $image = null;
 $isEdit = false;
 $success =  null;
 $course =  null;
+$imageName = null;
 
 // Verifica se é uma edição
 if (isset($_GET['id'])) {

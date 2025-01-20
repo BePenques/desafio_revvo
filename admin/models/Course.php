@@ -9,12 +9,6 @@ class Course extends Connection
    
     private $table;
 
-    public $id;
-    public $title;
-    public $description;
-    public $image;
-    public $created_at;
-    public $updated_at;
 
     public function __construct()
     {

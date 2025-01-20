@@ -6,7 +6,8 @@ require_once __DIR__ . '/../../controllers/CourseController.php';
 
 $controller = new CourseController();
 
-$title = $description = "";
+$title = "";
+$description = "";
 $image = null;
 $isEdit = false;
 $success =  null;
@@ -36,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
        $imageName = $normalizedTitle . '.' . $imageExtension;
 
-        move_uploaded_file($_FILES['image']['tmp_name'], "uploads/" . $imageName);
+        move_uploaded_file($_FILES['image']['tmp_name'], "uploads/courses/" . $imageName);
     }
 
     $data = ['id'=>null,'title'=> $title,'description'=> $description,'image'=> $imageName];
@@ -90,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="image">Imagem</label>
                 <input type="file" name="image" id="image" <?php echo $isEdit ? '' : 'required'; ?>>
                 <?php if ($isEdit && $image): ?>
-                    <p>Imagem atual: <img src="/admin/uploads/<?php echo $image; ?>" alt="Imagem do curso" style="width:80px;"></p>
+                    <p>Imagem atual: <img src="/admin/uploads/courses/<?php echo $image; ?>" alt="Imagem do curso" style="width:80px;"></p>
                 <?php endif; ?>
             </div>
             <div class="box-btn-form">

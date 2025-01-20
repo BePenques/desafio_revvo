@@ -69,9 +69,8 @@ img {
   width: 150px;
 }
 
-.cancel {
-  background-color: red;
-  color: white;
+.list {
+  background-color: #6c757d;
   padding: 15px;
   border: none;
   border-radius: 5px;

@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="box-btn-form">
                 <button type="submit" class="submit"><?php echo $isEdit ? 'Atualizar Curso' : 'Criar Curso'; ?></button>
-                <button type="button" class="cancel" onclick="window.location.href='/';">Cancelar</button>
+                <button type="button" class="list"><a href="/admin/index.php?page=courses" style="text-decoration: none; color: white">Ver cursos</a></button>
             </div>
         </form>
     </main>

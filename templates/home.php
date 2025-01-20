@@ -65,7 +65,7 @@
                     </div>  
                 <?php endforeach; ?>  
                 <div class="add-course">
-                    <a href="admin/index.php">
+                    <a href="admin/index.php?page=create">
                         <img src="/assets/images/add-course.png" alt="Curso 1">
                         <div class="add-course-txt">
                             <p>ADICIONAR<p>

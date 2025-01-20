@@ -88,9 +88,8 @@ img {
     
 
 }
-.cancel{
-    background-color: red;
-    color: white;
+.list{
+    background-color: $secondary-color;
     padding: $padding;
     border: none;
     border-radius: $border-radius;

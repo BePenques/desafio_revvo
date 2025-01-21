@@ -21,7 +21,7 @@ if (isset($_GET['id'])) {
     
     $course = $controller->findById($courseId)[0];
     $title = $course['title'];
-    $description = $course['title'];
+    $description = $course['description'];
     $image = $course['image'];
   
 }
@@ -32,12 +32,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!empty($_FILES['image']['name'])) {
 
+        $oldImagePath = "uploads/courses/" . $image;
+        //remover img antiga
+        if (file_exists($oldImagePath)) {
+            unlink($oldImagePath);
+        }
+
        $normalizedTitle = strtolower(preg_replace('/[^A-Za-z0-9]/', '_', $title));
        $imageExtension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
 
        $imageName = $normalizedTitle . '.' . $imageExtension;
 
         move_uploaded_file($_FILES['image']['tmp_name'], "uploads/courses/" . $imageName);
+
+    }else{
+        $imageName = $image;
     }
 
     $data = ['id'=>null,'title'=> $title,'description'=> $description,'image'=> $imageName];

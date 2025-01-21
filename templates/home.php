@@ -72,8 +72,9 @@
                     </div>  
                 <?php endforeach; ?>  
                 <div class="add-course">
+                    <img src="/assets/images/add-course.png" alt="Curso 1">
                     <a href="admin/index.php?page=create">
-                        <img src="/assets/images/add-course.png" alt="Curso 1">
+                        
                         <div class="add-course-txt">
                             <p>ADICIONAR<p>
                             <span>CURSO</span>  
@@ -82,25 +83,24 @@
                 </div> 
             </div>
         </section>
+    </main>
 
-        <div class="modal-overlay"></div>
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close" onclick="closeModal()">
-                        <i class="fas fa-times close-icon"></i>
-                    </span>
-                    <img src="/assets/images/modal-image.jpg" alt="Modal Image">
-                </div>
-                <div class="modal-text">
-                    <h2>EGESTAS TORTOR VULPUTATE</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quod incidunt rem officia nam accusamus blanditiis magnam iste nemo asperiores.</p>
-                    <button class="btn-register" onclick="closeModal()">INSCREVA-SE</button>
-                </div>
+    <div class="modal-overlay"></div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal()">
+                    <i class="fas fa-times close-icon"></i>
+                </span>
+                <img src="/assets/images/modal-image.jpg" alt="Modal Image">
+            </div>
+            <div class="modal-text">
+                <h2>EGESTAS TORTOR VULPUTATE</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quod incidunt rem officia nam accusamus blanditiis magnam iste nemo asperiores.</p>
+                <button class="btn-register" onclick="closeModal()">INSCREVA-SE</button>
             </div>
         </div>
-
-    </main>
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {

@@ -44,8 +44,10 @@
     <?php endif; ?>
     <div class="container-list">
         <h1 class="list-title">Lista de Slides</h1>
+        <div class="button-box">
+            <a href="/admin/index.php?page=create-slide" class="button-slide" >Cadastrar slide</a>
+        </div>
         <div class="table-responsive">
-        <a href="/admin/index.php?page=create-slide" class="button" style="float: right; margin-bottom: 10px;">Cadastrar slide</a>
             <table>
                 <thead>
                     <tr>

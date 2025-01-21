@@ -23,6 +23,7 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 500px;
+  box-sizing: border-box;
 }
 .create-form div {
   margin-bottom: 10px;
@@ -32,14 +33,16 @@ main {
   margin-bottom: 5px;
   font-weight: bold;
 }
+.create-form div input[type=file] {
+  max-width: 100%;
+}
 .create-form div input[type=text],
-.create-form div input[type=file],
 .create-form div textarea {
   width: 100%;
   padding: 15px;
   border: 1px solid #6c757d;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 1rem;
 }
 .create-form div textarea {
   resize: none;
@@ -55,6 +58,8 @@ main {
   margin-top: 20px;
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .submit {
@@ -76,4 +81,17 @@ main {
   cursor: pointer;
   font-size: 16px;
   width: 150px;
+}
+
+@media (max-width: 600px) {
+  .create-form {
+    padding: 7.5px;
+    width: 90%;
+  }
+  .submit, .list {
+    width: 100%;
+  }
+  textarea {
+    height: 80px;
+  }
 }

@@ -28,7 +28,7 @@ body {
 }
 
 .button:hover {
-    background-color: #0056b3;
+    background-color: #ddd;
 }
 
 //toast 
@@ -64,4 +64,15 @@ body {
     :hover{
         color: #007BFF;
     }
+}
+
+@media (max-width: 768px) {
+    .button-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
+    }
+
 }

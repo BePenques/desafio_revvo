@@ -12,6 +12,22 @@ $table-border-color: #dee2e6;
     background-color: $background-color;
     color: $text-color;
 }
+.button-box{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.button-slide{
+    margin-bottom: 10px; 
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
 
 h1 {
     text-align: center;
@@ -91,7 +107,6 @@ h1 {
 .modal-content {
     margin: auto;
     display: block;
-    width: 400px;
     max-width: 700px;
     background: white;
 }
@@ -114,7 +129,6 @@ h1 {
 }
 
 
-// ajuste para telas menores
 @media (max-width: 768px) {
     .table-responsive {
         table {
@@ -127,7 +141,7 @@ h1 {
         }
 
         img {
-            max-width: 70px;
+            max-width: 200px;
         }
         .btn-actions{
             display: flex;

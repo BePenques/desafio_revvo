@@ -13,7 +13,7 @@ class Course extends Connection
     public function __construct()
     {
         parent::__construct();
-        $this->table = 'course';
+        $this->table = 'courses';
     }
 
  

@@ -12,7 +12,7 @@ class Slide extends Connection
     public function __construct()
     {
         parent::__construct();
-        $this->table = 'slideshow';
+        $this->table = 'slideshows';
     }
 
  
@@ -45,7 +45,7 @@ class Slide extends Connection
                 'title' => $data['title'],
                 'description' => $data['description'],
                 'image' => $data['image'],
-                'button_link'=> $data['link']
+                'button_link'=> $data['button_link']
             ]);           
 
             return true;

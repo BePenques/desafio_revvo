@@ -1,8 +1,7 @@
 <?php
 
    require_once __DIR__ . '/../../controllers/CourseController.php';
-   require_once __DIR__ . '/../../models/Course.php';
-
+  
    $controller = new CourseController();
    $courses = $controller->getAll();
 

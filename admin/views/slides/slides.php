@@ -1,11 +1,25 @@
 <?php
 
-   require_once __DIR__ . '/../../controllers/SlideController.php';
+    require_once __DIR__ . '/../../controllers/SlideController.php';
 
-   $controller = new SlideController();
-   $slides = $controller->getAll();
+    $controller = new SlideController();
+    $slides = $controller->getAll();
 
-   $success = null;
+    $success = null;
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+        $slideId = $_POST['id'];
+
+        $success = $controller->delete($slideId);
+
+        if($success){
+            echo "<script> 
+                    setTimeout(() => {
+                        window.location.href = '/admin/index.php?page=slides';
+                    }, 2000);
+                </script>";
+        }
+    }
 
 ?>
 
@@ -21,11 +35,11 @@
 <body>
     <?php if ($success): ?>
 
-        <div class="toast success"><?php echo  'Curso excluído com sucesso!'  ?></div>
+        <div class="toast success"><?php echo  'Slide excluído com sucesso!'  ?></div>
 
     <?php elseif ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
 
-        <div class="toast error">Erro ao excluír o curso. Tente novamente.</div>
+        <div class="toast error">Erro ao excluír o slide. Tente novamente.</div>
 
     <?php endif; ?>
     <div class="container-list">
@@ -37,6 +51,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Título</th>
+                        <th>Link</th>
                         <th>Descrição</th>
                         <th>Imagem</th>
                         <th>Ações</th>
@@ -47,6 +62,7 @@
                         <tr>
                             <td><?= htmlspecialchars($slide['id']); ?></td>
                             <td><?= htmlspecialchars($slide['title']); ?></td>
+                            <td><?= htmlspecialchars($slide['button_link']); ?></td>
                             <td><?= htmlspecialchars($slide['description']); ?></td>
                             <td>
                                 <a href="#" onclick="openModal('<?= $slide['image'] ?>')">Ver Imagem</a>
@@ -55,7 +71,7 @@
                                 <a href="/admin/index.php?page=create-slide&id=<?= htmlspecialchars($slide['id']); ?>"><i class="fas fa-pen"></i></a>
                                 <form action="" method="POST" style="display:inline;">
                                     <input type="hidden" name="id" value="<?php echo $slide['id']; ?>">
-                                    <button type="submit" onclick="return confirm('Tem certeza que deseja deletar este curso?')"><i class="fas fa-trash"></i></button>
+                                    <button type="submit" onclick="return confirm('Tem certeza que deseja deletar este slide?')"><i class="fas fa-trash"></i></button>
                                 </form>
                                
                             </td>

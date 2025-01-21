@@ -78,5 +78,26 @@ class Slide extends Connection
         }
     }
 
+    public function delete($id){
+        if(!$this->findById($id))
+        {
+            return false;
+        }
+
+        $sql = "DELETE FROM " . $this->table . " WHERE id = :id";
+        $stmt = $this->connection->prepare($sql);
+        
+        try
+        {
+            $stmt->execute(['id'=>$id]);
+
+            return true;
+        }
+        catch (PDOException $e)
+        {
+            return false;
+        }
+    }
+
 
 }

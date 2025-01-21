@@ -40,6 +40,14 @@ class SlideController
         return  $result;
     }
 
+    public function delete($id)
+    {
+        $result = $this->slideModel->delete($id);
+
+    
+        return  $result;
+    }
+
 
 }
 

@@ -36,11 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $button_link = $_POST['button_link'];
 
     if (!empty($_FILES['image']['name'])) {
-        
-        $oldImagePath = "uploads/slides/" . $image;
-        //remover img antiga
-        if (file_exists($oldImagePath)) {
-            unlink($oldImagePath);
+
+        if($isEdit){
+            $oldImagePath = "uploads/slides/" . $image;
+            //remover img antiga
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath);
+            }
         }
 
        $normalizedTitle = strtolower(preg_replace('/[^A-Za-z0-9]/', '_', $title));

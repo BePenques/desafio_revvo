@@ -32,10 +32,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!empty($_FILES['image']['name'])) {
 
-        $oldImagePath = "uploads/courses/" . $image;
-        //remover img antiga
-        if (file_exists($oldImagePath)) {
-            unlink($oldImagePath);
+        if($isEdit){
+            $oldImagePath = "uploads/courses/" . $image;
+            //remover img antiga
+            if(file_exists($oldImagePath)) {
+                unlink($oldImagePath);
+            }
         }
 
        $normalizedTitle = strtolower(preg_replace('/[^A-Za-z0-9]/', '_', $title));

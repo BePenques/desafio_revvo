@@ -9,30 +9,39 @@ $controller = new SlideController();
 $title = "";
 $description = "";
 $image = null;
-$link = '';
+$button_link = '';
 
 $isEdit = false;
 $success =  null;
 $slide =  null;
 $imageName = null;
 
-// Verifica se é uma edição
-// if (isset($_GET['id'])) {
-//     $isEdit = true;
-//     $courseId = $_GET['id'];
+
+if (isset($_GET['id'])) {
+    $isEdit = true;
+    $slideId = $_GET['id'];
     
-//     $course = $controller->findById($courseId)[0];
-//     $title = $course['title'];
-//     $description = $course['title'];
-//     $image = $course['image'];
+    $slide = $controller->findById($slideId)[0];
+
+    $title = $slide['title'];
+    $description = $slide['description'];
+    $image = $slide['image'];
+    $button_link = $slide['button_link'];
   
-// }
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
+    $button_link = $_POST['button_link'];
 
     if (!empty($_FILES['image']['name'])) {
+        
+        $oldImagePath = "uploads/slides/" . $image;
+        //remover img antiga
+        if (file_exists($oldImagePath)) {
+            unlink($oldImagePath);
+        }
 
        $normalizedTitle = strtolower(preg_replace('/[^A-Za-z0-9]/', '_', $title));
        $imageExtension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
@@ -40,12 +49,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
        $imageName = $normalizedTitle . '.' . $imageExtension;
 
         move_uploaded_file($_FILES['image']['tmp_name'], "uploads/slides/" . $imageName);
+
+    }else{
+        $imageName = $image;
     }
 
-    $data = ['id'=>null,'title'=> $title,'description'=> $description,'image'=> $imageName, 'link'=>$link];
+    $data = ['id'=>null,'title'=> $title,'description'=> $description,'image'=> $imageName, 'button_link'=>$button_link];
 
     if ($isEdit) {
-        // to do: fazer update
+        $data['id'] = $slideId;
+        $success = $controller->update($data);
         
     } else {
         $success = $controller->create($data);
@@ -55,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $title = '';
         $description = '';
         $image = '';
-        $link = '';
+        $button_link = '';
     }
 }
 ?>
@@ -87,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div>
                 <label for="title">Link</label>
-                <input type="text" name="link" id="link" value="<?php echo htmlspecialchars($link); ?>" required>
+                <input type="text" name="button_link" id="button_link" value="<?php echo htmlspecialchars($button_link); ?>" required>
             </div>
             <div>
                 <label for="description">Descrição</label>
@@ -97,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="image">Imagem</label>
                 <input type="file" name="image" id="image" <?php echo $isEdit ? '' : 'required'; ?>>
                 <?php if ($isEdit && $image): ?>
-                    <p>Imagem atual: <img src="/admin/uploads/<?php echo $image; ?>" alt="Imagem do slideshow" style="width:80px;"></p>
+                    <p>Imagem atual: <img src="/admin/uploads/slides/<?php echo $image; ?>" alt="Imagem do slideshow" style="width:80px;"></p>
                 <?php endif; ?>
             </div>
             <div class="box-btn-form">

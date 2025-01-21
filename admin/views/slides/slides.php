@@ -52,7 +52,7 @@
                                 <a href="#" onclick="openModal('<?= $slide['image'] ?>')">Ver Imagem</a>
                             </td>
                             <td class="btn-actions">
-                                <a href="/admin/index.php?page=create&id=<?= htmlspecialchars($slide['id']); ?>"><i class="fas fa-pen"></i></a>
+                                <a href="/admin/index.php?page=create-slide&id=<?= htmlspecialchars($slide['id']); ?>"><i class="fas fa-pen"></i></a>
                                 <form action="" method="POST" style="display:inline;">
                                     <input type="hidden" name="id" value="<?php echo $slide['id']; ?>">
                                     <button type="submit" onclick="return confirm('Tem certeza que deseja deletar este curso?')"><i class="fas fa-trash"></i></button>

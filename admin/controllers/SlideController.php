@@ -24,6 +24,21 @@ class SlideController
     
         return  $result;
     }
+    public function findById($id)
+    {
+        $course = $this->slideModel->findById($id);
+
+        return  $course->fetchAll();
+        
+    }
+
+    public function update($data)
+    {
+        $result = $this->slideModel->update($data);
+
+    
+        return  $result;
+    }
 
 
 }
